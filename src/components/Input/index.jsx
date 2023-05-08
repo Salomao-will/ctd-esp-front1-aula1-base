@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Input = ({ name, label, type = "text" }) => {
   // Aqui devemos acessar o estado global para obter os dados
   // do formulário e uma maneira de atualizá-los.
 
   // Além disso, usaremos um estado local para lidar com o estado da input.
+  const [getVelueIput, setGetValueInput] = useState("")
 
   const onChange = (e) => {
     // Aqui devemos atualizar o estado local do input
+    setGetValueInput(getVelueIput(e));
   };
 
   const onBlur = (e) => {
@@ -26,7 +28,7 @@ const Input = ({ name, label, type = "text" }) => {
         type={type}
         value={"Sempre tenho o mesmo valor XD"}
         id={name}
-        onChange={onChange}
+        onChange={e => onChange(e.target.value)}
         onBlur={onBlur}
       />
     </div>
